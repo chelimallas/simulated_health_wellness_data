@@ -1,1 +1,10 @@
 # simulated_health_wellness_data
+This repository contains a comprehensive analysis of simulated health and wellness data using unsupervised machine learning techniques. The primary focus of this project is to evaluate how different clustering algorithms—namely K-Means and Hierarchical Clustering (Ward’s linkage method)—perform on lifestyle-related variables, and to assess how Principal Component Analysis (PCA) impacts the interpretability and quality of the clustering results.
+
+The dataset consists of 200 synthetic observations, each representing an individual's lifestyle profile. The features include exercise time (hours per week), number of healthy meals consumed per day, average sleep duration, self-reported stress level (on a 1–10 scale), and Body Mass Index (BMI). These variables serve as inputs for segmentation to uncover latent health and behavior patterns.
+
+To ensure fair comparison and robust model performance, all features were first standardized using Z-score normalization. Clustering was conducted on both the original five-dimensional feature space and a two-dimensional PCA-reduced space, which retained approximately 45.8% of the original variance. Model evaluation metrics included Within-Cluster Sum of Squares (WCSS) for compactness and Silhouette Score for cluster separation.
+
+The results demonstrated that applying PCA before clustering significantly improves model performance and visualization. The K-Means algorithm applied on PCA-reduced data achieved the best performance, with a silhouette score of 0.361 and a WCSS of 190.42. Hierarchical clustering also improved after PCA, although not as markedly as K-Means. Cluster profiles revealed meaningful segmentation, distinguishing individuals with high exercise and low stress from those with low activity and higher BMI.
+
+To further enhance interpretability, a feature importance analysis was conducted using a post-clustering logistic regression model, treating cluster labels as pseudo-targets. This revealed which lifestyle variables had the most influence on cluster assignment—an important step for applying these insights in wellness program design.
